@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-contract GobalVariables {
+contract GlobalVariables {
 
     /*
     global variable
@@ -10,9 +10,9 @@ contract GobalVariables {
     */
 
     function globalVars() external view returns (address, uint, uint) {
-        address sender = msg.sender;
-        uint timestamp = block.timestamp;
-        uint blockNum = block.number;
+        address sender = msg.sender;       // 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+        uint timestamp = block.timestamp;  // 1680006649
+        uint blockNum = block.number;      // 4
         return (sender, timestamp, blockNum);
     }
 }
