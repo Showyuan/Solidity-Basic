@@ -28,15 +28,15 @@ contract Structs {
         tesla.year = 2010;
         tesla.owner = msg.sender;
 
-        car.push(toyota);
-        car.push(lambo);
-        car.push(tesla);
+        cars.push(toyota);
+        cars.push(lambo);
+        cars.push(tesla);
 
-        car.push(Car("Ferrari", 2020, msg.sender));
+        cars.push(Car("Ferrari", 2020, msg.sender));
         
         Car storage _car = cars[0];
-        _car.year;
-        delete _car.owner; // 讓cars[0]的owner欄位恢復初始值
-        delete car[1];     // 讓car[1]的所有欄位恢復初始值
+        _car.year = 1999;   // 重新賦值
+        delete _car.owner;  // 讓cars[0]的owner欄位恢復初始值
+        delete cars[1];     // 讓cars[1]的所有欄位恢復初始值
     }
 }
