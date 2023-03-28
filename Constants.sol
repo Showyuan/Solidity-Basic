@@ -10,10 +10,12 @@ contract Constants {
         - 可節省gas 成本
     */
 
+    // 356 gas
     address public constant MY_ADDRESS = 0x777788889999AaAAbBbbCcccddDdeeeEfFFfCcCc;
-    uint public constant MY_UNIT = 123;
+    // uint public constant MY_UNIT = 123;
 }
 
 contract Var {
+    // 2489 gas
     address public MY_ADDRESS = 0x777788889999AaAAbBbbCcccddDdeeeEfFFfCcCc;
 }
