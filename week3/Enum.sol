@@ -29,7 +29,7 @@ contract Enum {
     Order[] public orders;
 
     // 取得狀態
-    function get() view returns (Status) {
+    function get() view public returns (Status) {
         return status;
     }
 
