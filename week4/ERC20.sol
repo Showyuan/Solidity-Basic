@@ -46,19 +46,21 @@ contract ERC20 is IERC20 {
         return true;
     }
 
-    // 限制合約從餘額領出的代幣數量
+    // 授權對象地址，可以使用多少我的額度
     function approve(address spender, uint amount) external returns (bool) {
         allowance[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
         return true;
     }
 
-    // 授權某個人或另一份合約，替自己轉帳資金
+    // 授權某個人或另一份合約可使用的額度
+    // *** transferFrom 中有這點可以改進，allowance[sender][msg.sender] 這邊可以加上 require 來確認 msg.sender 是否有足夠的 allowance 來 transfer
     function transferFrom(
         address sender,
         address recipient,
         uint amount
     ) external returns (bool) {
+        require(allowance[sender][msg.sender] >= amount, "Amount Not Enough!");
         allowance[sender][msg.sender] -= amount;
         balanceOf[sender] -= amount;
         balanceOf[recipient] += amount;
